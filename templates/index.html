@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Turkich</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>I love Turkich!</h1>
+    <div class="content">
+        <div class="content-img">
+            <img src="{{ url_for('static', filename='img/top.jpg') }}" alt="" class="top">
+        </div>
+        <div class="content-table">
+            <div class="content-table-form">
+                <form action="/add" method="post">
+                    <p>
+                        <label class="string">Enter the task:</label>
+                        <input type="text" name="name">
+                    </p>
+                    <p>
+                        <button type="submit">Add task</button>
+                    </p>
+                </form>
+                <div class="table">
+                    {%for todo in todo_list %}
+                        <p>{{ todo.task_id }}
+                        {{ todo.name }}
+                        {% if todo.done==False %}
+                            <span>- Not Done</span>
+                        {% else %}
+                            <span>- Done</span>
+                        {% endif %}
+                        <a href="/update/{{todo.task_id}}" class="link-update">Update</a>
+                        <a href="/delete/{{todo.task_id}}" class="link-delete">Delete</a>
+                        </p>
+
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+        <div class="content-img">
+            <img src="{{ url_for('static', filename='img/top.jpg') }}" alt="" class="top">
+        </div>
+    </div>
+    <p1>Merhaba :)</p1>
+    <a href="/message/" class="link">Take me message</a>
+</body>
+</html>
+
