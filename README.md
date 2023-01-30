@@ -1,2 +1,2 @@
 # todolist
-My to do list
+My project "To do list"
