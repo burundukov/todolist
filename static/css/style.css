@@ -2,11 +2,9 @@ body {
     font-family: sans-serif;
     font-size: 24px;
     background-color: black;
+    color: #FFFFFF;
   }
 
-main {
-    padding-top: 50px;
-}
 h1 {
     text-align: center;
     color: #FFFFFF;
@@ -20,6 +18,7 @@ h1 {
 main {
     margin: 0 auto;
     position: relative;
+    padding-top: 20px;
 }
 
 .main_button {
@@ -73,7 +72,6 @@ input:hover {border-bottom: 1px solid #03e9f4;}
 .table {
     position: relative;
     min-height: 323px;
-    width: 1124px;
     text-align: center;
 }
 
@@ -157,6 +155,7 @@ input:hover {border-bottom: 1px solid #03e9f4;}
 	width: auto;
 	margin: 0 auto;
 	margin-bottom: 5px;
+	margin-top: 5px;
 }
 
 .link {
@@ -172,4 +171,30 @@ input:hover {border-bottom: 1px solid #03e9f4;}
 
 .link:hover {
     color: #03e9f4;
+}
+
+
+nav {
+    border-bottom: 1px solid #fff;
+	width: auto;
+	margin: 0 auto;
+}
+
+.remember {
+    position: relative;
+}
+
+#remember_me {
+    width: 60px;
+    display: inline-block;
+
+}
+
+.nav_ul {
+    margin-bottom: 5px;
+    height: 24px;
+}
+
+.register {
+    margin-bottom: 60px;
 }

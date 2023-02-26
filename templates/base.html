@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To do list</title>
+    <link type="Image/x-icon" href="{{ url_for('static', filename='icons/icon.svg') }}" rel="icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main>
+        <nav>
+            <ul class="nav_ul">
+                {% if current_user.is_anonymous %}
+                <a class="link" href="/register">Register</a>
+                <a class="link" href="/login">Sign in</a>
+                <span class="nav_name">To do app</span>
+                {% else %}
+                <a class="link" href="{{ url_for('logout') }}">Logout</a>
+                <span class="nav_name">{{current_user}}</span>
+                {% endif %}
+            </ul>
+        </nav>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="horizon"></div>
+        <div>
+            <ul>
+                <li><a href="https://github.com/burundukov/todolist" target="_blank" class="link">My github link</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

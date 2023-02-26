@@ -1,18 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>To do list</title>
-    <link type="Image/x-icon" href="{{ url_for('static', filename='icons/icon.svg') }}" rel="icon">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <main>
+{% extends "base.html" %}
+
+{% block content %}
         <h1>To Do <span class="main_span">List</span></h1>
         <form action="/add" method="post">
             <label class="main_string">Enter the task:</label>
@@ -22,26 +10,16 @@
         <div class="table">
             {%for todo in todo_list %}
                 <div class="table__text">
-                    <p class="table__text_first">{{ todo.task_id }}.</p>
+                    <p class="table__text_first">{{ todo.id }}.</p>
                     <p class="table__text_second">{{ todo.name }}</p>
                     {% if todo.done==False %}
                         <p class="table__text_third">- Not Done</p>
                     {% else %}
                         <p class="table__text_third">- Done</p>
                     {% endif %}
-                <a href="/update/{{todo.task_id}}" class="button-link update">Update</a>
-                <a href="/delete/{{todo.task_id}}" class="button-link delete">Delete</a>
+                <a href="/update/{{todo.id}}" class="button-link update">Update</a>
+                <a href="/delete/{{todo.id}}" class="button-link delete">Delete</a>
                 </div>
             {%endfor%}
         </div>
-    </main>
-    <footer>
-        <div class="horizon"></div>
-        <nav>
-            <ul>
-                <li><a href="https://github.com/burundukov/todolist"  target="_blank" class="link">My github link</a></li>
-            </ul>
-        </nav>
-    </footer>
-</body>
-</html>
+{% endblock %}
